@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <style>
+      /* Base styles */
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url("https://images.unsplash.com/photo-1708167721434-7b2d062dc090?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+          no-repeat center center fixed;
+        background-size: cover;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Adds contrast for text readability */
+      }
+
+      /* Add a semi-transparent overlay to darken the background */
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(
+          0,
+          0,
+          0,
+          0.5
+        ); /* Dark overlay to improve text visibility */
+        z-index: -1; /* Send the overlay behind all content */
+      }
+
+      /* Main container styling */
+      .todo-container {
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.1
+        ); /* Slightly transparent white background */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        width: 90%;
+        max-width: 400px;
+        color: #fff;
+        text-align: center;
+      }
+
+      /* Header styles */
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      /* Input box and add button */
+      #todo-input {
+        width: calc(100% - 100px);
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        font-size: 1rem;
+        outline: none;
+      }
+
+      #add-btn {
+        padding: 10px 15px;
+        font-size: 1rem;
+        border: none;
+        background-color: #28a745;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+      }
+
+      #add-btn:hover {
+        background-color: #218838; /* Darker green on hover */
+      }
+
+      /* The task list container */
+      .todo-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      /* Individual task styles */
+      .todo-list li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.2s ease-in-out,
+          transform 0.1s ease-in-out;
+      }
+
+      .todo-list li:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        transform: scale(1.02); /* Slight zoom effect */
+      }
+
+      /* Completed tasks */
+      .completed {
+        text-decoration: line-through;
+        color: #ccc;
+      }
+
+      /* Delete button */
+      button {
+        background-color: #dc3545; /* Red */
+        color: white;
+        border: none;
+        padding: 6px 10px;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+      }
+
+      button:hover {
+        background-color: #c82333; /* Darker red */
+      }
+
+      /* Input box for editing */
+      input[type="text"] {
+        font-size: 1rem;
+        padding: 6px 10px;
+        width: 100%;
+        border: none;
+        border-radius: 5px;
+        box-sizing: border-box;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Zen To-Do List 🧘</h1>
+    <div class="todo-container">
+      <input id="todo-input" type="text" placeholder="Enter a task" />
+      <button id="add-btn">Add</button>
+      <ul class="todo-list"></ul>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
